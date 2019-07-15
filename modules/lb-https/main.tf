@@ -5,12 +5,12 @@ resource "google_compute_global_forwarding_rule" "http" {
   port_range = "80"
 }
 
-#resource "google_compute_global_forwarding_rule" "https" {
-#  name       = "${var.name}-https"
-#  target     = "${google_compute_target_https_proxy.default.self_link}"
-#  ip_address = "${google_compute_global_address.default.address}"
-#  port_range = "443"
-#}
+resource "google_compute_global_forwarding_rule" "https" {
+  name       = "${var.name}-https"
+  target     = "${google_compute_target_https_proxy.default.self_link}"
+  ip_address = "${google_compute_global_address.default.address}"
+  port_range = "443"
+}
 
 resource "google_compute_global_address" "default" {
   name       = "${var.name}-address"
@@ -21,17 +21,17 @@ resource "google_compute_target_http_proxy" "default" {
   url_map  = "${google_compute_url_map.default.self_link}"
 }
 
-#resource "google_compute_target_https_proxy" "default" {
-#  name        = "${var.name}-https-proxy"
-#  url_map     = "${google_compute_url_map.default.self_link}"
-#  ssl_certificates = ["${google_compute_ssl_certificate.default.self_link}"] 
-#}
+resource "google_compute_target_https_proxy" "default" {
+  name        = "${var.name}-https-proxy"
+  url_map     = "${google_compute_url_map.default.self_link}"
+  ssl_certificates = ["${google_compute_ssl_certificate.default.self_link}"] 
+}
 
-#resource "google_compute_ssl_certificate" "default" {
-#  name        = "${var.name}-cert"
-#  private_key = "${var.priv-key}"
-#  certificate = "${var.cert}"
-#}
+resource "google_compute_ssl_certificate" "default" {
+  name        = "${var.name}-cert"
+  private_key = "${var.priv-key}"
+  certificate = "${var.cert}"
+}
 
 resource "google_compute_url_map" "default" {
   name            = "${var.name}-urlmap"

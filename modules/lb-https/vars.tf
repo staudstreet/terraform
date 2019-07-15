@@ -10,8 +10,8 @@ variable region {
 variable backend {
 }
 
-#variable priv-key {
-#}
+variable priv-key {
+}
 
-#variable cert {
-#}
+variable cert {
+}

@@ -16,6 +16,6 @@ module "lb-https" {
   env          = "${var.env}"
   region       = "${var.region}"
   backend      = "${module.homepage.backend}"
-#  priv-key     = "${acme_certificate.rbrk-cert.private_key_pem}"
-#  cert         = "${acme_certificate.rbrk-cert.certificate_pem}"
+  priv-key     = "${acme_certificate.rbrk-cert.private_key_pem}"
+  cert         = "${acme_certificate.rbrk-cert.certificate_pem}"
 }
