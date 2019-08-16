@@ -1,7 +1,7 @@
 # Terraform
 
 ### About this repo
-This is the terraform code which runs rbrk.at.
+This is the terraform code which ~runs~ **ran** rbrk.at.
 
 ### Setup
 You will need to create a secrets folder, as referenced in the provider.tf file and then add the required credentials for GCP and OVH. Scrits for this will be added in the near future. As for how this is done, please reference the folder structure below.
